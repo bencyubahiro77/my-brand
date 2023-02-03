@@ -2,13 +2,16 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
+const dotenv= require('dotenv');
 
 const blogRouter = require('./routes/blog');
 const commentRoutes = require('./routes/comment');
 const contactRoutes = require('./routes/contact');
 const authRoutes = require('./routes/auth');
 //const likeRoutes = require('./routes/like');
-
+dotenv.config({
+    path:"./.env"
+});
 const app = express();
 
 //middleware
@@ -23,6 +26,7 @@ app.use('/api/auth', authRoutes);
 
 app.use((req, res, next) => {
     const token = req.header("x-auth-token");
+    console.log(res.header);
     if (!token) {
     return res.status(401).json({ message: "No token, authorization denied" });
     }
@@ -36,8 +40,9 @@ app.use((req, res, next) => {
     });
 
 const PORT = process.env.PORT || 3000;
+const DB=process.env.DB_ONLINE;
 
-mongoose.connect('mongodb+srv://bencyubahiro77:Cyubahiro13@cluster0.wzdv6c5.mongodb.net/test',
+mongoose.connect(DB,
 {
 useNewUrlParser: true,
 useUnifiedTopology: true

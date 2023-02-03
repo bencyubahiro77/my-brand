@@ -1,2 +1,2 @@
 # my-brand
-this is repository contain  backend and frontend coded of my personal web
+this is repository contain  backend and frontend code of my personal web

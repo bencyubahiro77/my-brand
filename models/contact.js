@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const contactSchema = new mongoose.Schema({
     
 name: {
@@ -7,8 +8,7 @@ required: true,
 },
 email: {
 type: String,
-required: true,
-unique: true,
+required: true
 },
 message: {
 type: String,

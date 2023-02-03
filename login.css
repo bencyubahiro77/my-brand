@@ -1,0 +1,217 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(/nubelson-fernandes--Xqckh_XVU4-unsplash.jpg);
+    background-size:cover;
+    font-family: sans-serif;
+}
+.loginbox{
+    width: 320px;
+    height: 420px;
+    background:#000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+
+}
+.loginbox h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+
+}
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+
+}
+.loginbox input{
+    width:100%;
+    margin-bottom:20px;
+
+}
+.loginbox input[type="email"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+
+}
+/*.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgb(238, 96, 13);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+
+}*/
+.btn4{
+    display: inline-block;
+    background:rgb(238, 96, 13);
+    width:100%;
+    border: 6px;
+    border: 0;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    height: 45px;
+      }
+   form .btn4{
+       cursor: pointer;
+      }
+.loginbox input[type="submit"]:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: black;
+
+}
+.loginbox a{
+    font-size: 14px;
+    line-height:  20px;
+    color: rgb(201, 37, 138);
+    margin: 2px;
+}
+.footerlogin {
+    display: inline-flex ;
+}
+
+/*---------------------------------------sign in--------------------------------*/
+body{
+    margin: 0;
+    padding: 0;
+    background: url(/nubelson-fernandes--Xqckh_XVU4-unsplash.jpg);
+    background-size:cover;
+    font-family: sans-serif;
+    color: #fff;
+}
+.signinbox{
+    width: 420px;
+    height: 700px;
+    background:#000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    padding-top: 50px;
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+
+}
+.signinbox h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 32px;
+    color: rgb(238, 96, 13);
+
+}
+.signinbox h4{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+.signinbox p{
+    margin: 0;
+   /* padding: 0;*/
+    font-weight: bold;
+
+}
+.signinbox input{
+    width:100%;
+    margin-bottom:  20px;
+
+}
+.signinbox input[type="text"], input[type="password"] ,input[type="email"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+
+}
+.btn3{
+ display: inline-block;
+ background:rgb(238, 96, 13);
+ width:100%;
+ border: 6px;
+ border: 0;
+ padding: 15px;
+ font-size: 18px;
+ border-radius: 20px;
+ margin-bottom: 20px;
+ color: #fff;
+   }
+form .btn3{
+    cursor: pointer;
+   }
+.signinbox input[type="submit"]:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: black;
+}
+.signinbox a{
+   
+    font-size: 12px;
+    line-height: 20px;
+    color: rgb(201, 37, 138);
+    
+}
+.footersignin{
+    text-align: center;
+    padding-top: 3px;
+}
+
+@media only screen and (max-width:600px){
+    .signinbox{
+        width: 100%;
+        height: 100%;
+    }
+    .signinbox h4{
+        font-size: 20px;
+    }
+    .signinbox p{
+        font-size: 12px;
+    }
+    .signinbox input[type="submit"]{
+        width: 90%;
+    }
+    .signinbox input{
+        width: 90%;
+    }
+}

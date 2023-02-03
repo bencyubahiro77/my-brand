@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Brand</title>
+    <link rel="stylesheet" href="../admin css/admin.css">
+    <script src="https://kit.fontawesome.com/3ac835aa79.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="homepage__container">
+           <nav>
+            
+            <img src="/pics used/beno logo 2.png" class="logo">
+            <select>
+                <option value="manage-profile">Manage Profile</option>
+                <option value="logout">logout</option>
+            </select> 
+          </nav>
+    
+         </div>
+    
+    </div>
+    <div class="mainaboutme">
+            
+                <div class="about-col-1">
+                 <ul>
+                    <li><a href="../blog post/blog.html">Manage Blog</a></li>
+                    <li><a href="../users/index.html">Manage Users</a></li>
+                    <li><a href="index.html">Manage Work</a></li>
+                    <li><a href="../contact/index.html">Manage Contact</a></li>
+                 </ul>
+                </div>
+
+                <div class="about-col-2">
+                    <div class="button-group">
+                        <button><a href="create.html"class="btnblog">Add work</a></button>
+                        <button><a href="index.html"class="btnblog">Manage work</a></button>
+                    </div>
+
+                    <div class="content">
+                        <h2 class="page-title">Add New work</h2>
+                      <form action="create.html" method="post">
+                        <div>
+                          <p>Title</p>
+                          <input type="text" name="title" class="text-input"> 
+                        </div>
+                        <div>
+                            <p>Body</p>
+                            <textarea name="body" id="body" class="body-input"></textarea>
+                        </div>
+                        <div>
+                            <p>Image</p>
+                            <input type="file" name="image" class="text-input">
+                        </div>
+                        <div>
+                            <p>Topic</p>
+                            <select name="topic" class="text-input">
+                                <option value="Coding">Coding</option>
+                                <option value="Electronics">Electronics</option>
+                            </select>
+                        </div> 
+                        <div>
+                            <button type="submit" class="btnblog">Add Post</button>
+                        </div>
+                      </form>
+                            
+                    </div>
+                    
+                </div>                
+   </div>
+
+</body>
+</html>

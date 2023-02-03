@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Brand</title>
+    <link rel="stylesheet" href="../admin css/admin.css">
+    <script src="https://kit.fontawesome.com/3ac835aa79.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="homepage__container">
+           <nav>
+            
+            <img src="/pics used/beno logo 2.png" class="logo">
+            <select>
+                <option value="manage-profile">Manage Profile</option>
+                <option value="logout">logout</option>
+            </select> 
+          </nav>
+    
+         </div>
+    
+    </div>
+    <div class="mainaboutme">
+            
+                <div class="about-col-1">
+                 <ul>
+                    <li><a href="../blog post/blog.html">Manage Blog</a></li>
+                    <li><a href="index.html">Manage Users</a></li>
+                    <li><a href="../my work/index.html">Manage Work</a></li>
+                    <li><a href="../contact/index.html">Manage Contact</a></li>
+                 </ul>
+                </div>
+
+                <div class="about-col-2">
+                    <div class="button-group">
+                        <button><a href="create.html"class="btnblog">Add User</a></button>
+                        <button><a href="index.html"class="btnblog">Manage Users</a></button>
+                    </div>
+
+                    <div class="content">
+                        <h2 class="page-title">Add New User</h2>
+                      <form action="create.html" method="post">
+                        <div>
+                            <p>First name</p>
+                        <input type="text" name="first-name" placeholder="Enter First name" id="first-name" class="text-input" required>
+                        </div>
+                        
+                        <div>
+                            <p>Last name</p>
+                        <input type="text" name="last-name"placeholder="Enter last name" id="last-name" class="text-input"required >
+                        </div>
+                        
+                        <div>
+                            <p>Email</p>
+                        <input type="email" name="email" placeholder="Enter Email" id="email"class="text-input" required >
+                        </div>
+                        
+                        <div>
+                            <p>Password</p>
+                        <input type="password" name="password" placeholder="Enter Password" id="password"class="text-input" required>
+                        </div>
+                        
+                        <div>
+                            <p>Confirm Password</p>
+                        <input type="password" name="password-repeat" placeholder="Repeat Password" id="password-repeat" class="text-input"required >
+                        </div>
+                        <div>                        
+                            <p>Role</p>
+                        <select name="Role" class="text-input">
+                            <option value="Admin">Admin</option>
+                            <option value="Author">Author</option>
+                        </select>
+                       </div>
+
+                        <div>
+                            <button type="submit" class="btnblog">Add User</button>
+                        </div>
+                      </form>
+                            
+                    </div>
+                    
+                </div>                
+   </div>
+
+</body>
+</html>

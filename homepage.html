@@ -10,28 +10,27 @@
 </head>
 
 <body>
-<div id="header">
-    <div class="homepage__container">
-        
-       <nav>
-        
-        <img src="/pics used/beno logo 2.png" class="logo">
-       
-        <ul>
-         <li><a href="homepage.html" >Home </a></li>
-         <li><a href="mywork.html" >Portfolio</a></li>
-         <li><a href="blog.html" >Blog</a></li>
-         <li><a href="skills.html" >Skills</a></li>
-         <li><a href="contact.html" >Contact me</a></li>
-         <li><a href="aboutme.html" >About me</a></li>
-         <li><a href="login.html" >Logout</a></li>
-   
-        </ul> 
-      </nav>
-
-     </div>
-
-</div> 
+    <div id="header">
+        <div class="homepage__container">
+            
+            <nav>
+            
+                <img src="/pics used/beno logo 2.png" class="logo">
+                <ul id="sidemenu">
+                 <li><a href="homepage.html" >Home </a></li>
+                 <li><a href="mywork.html" >Portfolio</a></li>
+                 <li><a href="blog.html" >Blog</a></li>
+                 <li><a href="skills.html" >Skills</a></li>
+                 <li><a href="contact.html" >Contact me</a></li>
+                 <li><a href="aboutme.html" >About me</a></li>
+                 <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul> 
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+              </nav>
+    
+         </div>
+    
+    </div>
 
         <div class="main__container">
             <div class="main__img--container">
@@ -76,6 +75,17 @@
     <div class="social__media">
             <p class="Website__rights">BENO &#169; 2023 All rights reserved.</p>
     </div>
-</div>   
+</div> 
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+    
+    function openmenu(){
+        sidemenu.style.right ="0";
+    }
+    function closemenu(){
+        sidemenu.style.right ="-190px";
+    }
+    
+    </script>  
 </body>
 </html>

@@ -315,7 +315,7 @@
     display: flex;
     padding-top: 20px;
     padding-bottom: 10px;
-    
+    margin-left: 50px;
 
 
  }
@@ -335,6 +335,8 @@
      grid-gap: 40px;
      margin-top: 50px;
      margin-left: 0px;
+     margin-bottom: 50px;
+     text-align: center;
   }
   .work{
      border-radius: 10px;
@@ -355,6 +357,7 @@
   .layer h3{
     width: 250px;
     text-align: center;
+    margin-left: 35px;
 
   }
   
@@ -362,6 +365,8 @@
  width: 100%;
  border-radius: 10px;
  display: block;
+ text-align: center;
+ margin-left: 50px;
  
   }
  /*--------------------------------------------Contact-----------------------------*/
@@ -456,6 +461,8 @@ form .btn.btn2{
  grid-gap: 40px;
  margin-top: 50px;
  margin-left: 0px;
+ margin-bottom: 50px;
+ text-align: center;
 }
 
 .work{
@@ -466,6 +473,7 @@ form .btn.btn2{
 }
 .work h3{
  color: rgb(238, 96, 13);
+ text-align: center;
 
 }
 .work img{
@@ -473,6 +481,8 @@ width: 100%;
 border-radius: 10px;
 display: block;
 transition: transform 0.5s;
+text-align: center;
+margin-left: 50px;
 
 }
 .work:hover img{
@@ -765,7 +775,9 @@ transition: transform 0.5s;
          .homepage__container{
             padding: 0;
          }
-         
+         .homepage__container nav{
+            display: flex;
+         }
          nav{
             display: grid;
             width: 350px;
@@ -815,6 +827,9 @@ transition: transform 0.5s;
             padding-left: 15px;
             height: fit-content;
             
+        }
+        .work-list{
+         width: 298px;
         }
         /*-------------skills---------------*/
         .main__containerskills{

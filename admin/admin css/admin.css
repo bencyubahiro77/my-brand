@@ -47,23 +47,22 @@
     width: 100%;
  }
  
- 
- 
 .mainaboutme{
-    display: flex;
+    display: block;
     max-width: 100%;
     height: 100%;
 }
 .mainaboutme .about-col-1{
-    width: 25%;
+    width: 100%;
     height: 100%;
     background:rgb(7, 85, 7);;
+
 }
 .mainaboutme .about-col-1 ul{
+    display:flex;
     list-style: none;
     margin: 0px;
     padding: 0px;
-
 }
 .mainaboutme .about-col-1 ul li a{
     color:#fff;
@@ -124,10 +123,11 @@ td{
 }
 .text-input{
     width: 70%;
-    height: 20px;
+    height: 50px;
 }
 .body-input{
     width: 70%;
+    height: 40vh;
 }
 form div{
     margin-bottom: 10px;
@@ -177,5 +177,24 @@ form div{
         border-collapse: collapse;
         font-size: 0.7rem;
     }
-    
+    .mainaboutme{
+        display: block;
+    }
+    .about-col-1 ul{
+        display: flex;
+        
+    }
+    .mainaboutme .about-col-1{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .contact_table{
+        width: 120%;
+    }
+    .homepage__container{
+      padding:15px;
+    }
+    .body-input{
+        width: 100%;
+    }
 }

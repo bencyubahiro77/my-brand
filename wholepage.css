@@ -60,6 +60,7 @@
             height: 100%;
             width: 100%;
             max-width: 1000px;
+            ;
            
             
          }
@@ -358,8 +359,8 @@
     width: 250px;
     text-align: center;
     margin-left: 35px;
-
   }
+
   
   .work img{
  width: 100%;
@@ -582,13 +583,14 @@ margin-left: 50px;
 
         /*-----------------------------------------------footer--------------------------------------------*/
         .footer__section{
-            background-color: rgb(1, 44, 1);
-            padding: 0.5rem ;
+            padding-top: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
+        
+            
         }
         .footer__links{
             width: 100%;
@@ -655,7 +657,7 @@ margin-left: 50px;
         display: none;
      } 
 
-     @media only screen and (max-width:600px){
+     @media only screen and (max-width:700px){
         .main__content{
             padding-left: 0px;
             text-align: center;

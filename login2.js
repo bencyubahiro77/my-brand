@@ -7,12 +7,12 @@ form.addEventListener("submit", (e) => {
   const lastName = form.elements.namedItem("last-name").value;
   const email = form.elements.namedItem("email").value;
   const password = form.elements.namedItem("password").value;
-  const passwordRepeat = form.elements.namedItem("password-repeat").value;
+  //const passwordRepeat = form.elements.namedItem("password-repeat").value;
 
-  if (password !== passwordRepeat) {
-    alert("Passwords do not match!");
-    return;
-  }
+  // if (password !== passwordRepeat) {
+  //   alert("Passwords do not match!");
+  //   return;
+  // }
 
   const account = {
     firstName,
@@ -29,7 +29,7 @@ form.addEventListener("submit", (e) => {
   }
   accounts.push(account);
   localStorage.setItem("accounts", JSON.stringify(accounts));
-  window.location.href="homepage.html"
+  window.location.href=""
   alert("Account created successfully!");
 });
 
@@ -59,7 +59,7 @@ loginForm.addEventListener("submit", (e) => {
       alert("Incorrect password. Please try again.");
       return;
     }
-    window.location.href="homepage.html";  
+    window.location.href="./admin/blog post/blog.html";  
 
   })};
 

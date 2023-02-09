@@ -1,102 +1,168 @@
 const express = require("express");
-
 const router = express.Router();
 //const Blog = require("../models/blog");
 const blogController = require("../controllers/blog");
 
+/**
+* @swagger
+* components:
+*  responses:
+*           200:
+*              description: Success
+*           400:
+*              description: Bad request
+*           401:
+*              description: Authorization
+*           404:
+*              description: Not found
+*           500:
+*              description: Unexpected error.
+*  schemas:
+*     Blog:
+*       type: object
+*       required:
+*          -title
+*          -blogbody
+*          -imageUrl
+*          -id
+*       properties:
+*        title:
+*           type: string
+*           description: title of blog
+*        blogbody:
+*           type: string
+*           description: Body of blog
+*        imageUrl:
+*           type: string
+*           description: image link
+*        id:
+*           type: string
+*           description: Id of the blog
+*  parameters:
+*      blogId:
+*        name: id
+*        in: path
+*        description: Id for specified blogId
+*        required: true
+*        schema:
+*           type: string
+*/
 
 /**
 * @swagger
-* /blogs:
-* post:
-* summary: Creates a new blog
-* requestBody:
-* required: true
-* content:
-* application/json:
-* responses:
- 201: :Blog created successfully
- 400: Invalid request body
+* tags:
+*  name: Blog
+*  description: All Blogs created
 */
-router.post("/", blogController.createBlog);
-
-
-/**
-* @swagger
-* /blogs:
-* get:
-* summary: Returns all blogs
-* responses:
-* 200: List of blogs
-* content:
-* application/json:
-* schema:
-* type: array
-* items:
-* $ref: '#/models/blog.js'
-*/
-
-router.get("/", blogController.getBlogs);
-
-
-/**
-* @swagger
-* /blogs/{id}:
-* get:
-* summary: Returns a blog by its id
-* parameters:
-* - in: path
-* name: id
-* schema:
-* type: string
-* required: true
-* id name of the blog: Id of the blog to retrieve
-* responses:
-* 200:
-* description: Blog details
-* content:
-* application/json:
-* $ref: '#/models/blog.js'
-* 404: Blog not found
-*/
-router.get("/:id", blogController.getBlogById);
-
-/**
-* @swagger
-* /blogs/{id}:
-* put:
-* summary: Updates a blog by its id
-* parameters:
-* - in: path
-* name: id
-* schema:
-* type: string
-* needed: true
-* description: Id of the blog to update
-* requestBody:
-* required: true
-* content:
-*/
-router.put("/:id", blogController.updateBlog);
 
 
 /**
 * @swagger
-* /blogs/{id}:
-* delete:
-* summary: Deletes a blog by its id
-* parameters:
-* - in: path
-* name: id
-* schema:
-* type: string
-* required: true
-* description: Id of the blog to delete
-* responses:
-* 200: Blog deleted successfully
-* 404: Blog not found
+*  /blog:
+*   post:
+*    summary: creating blog
+*    tags: [Blog]
+*    requestBody:
+*      required: true
+*      content:
+*         application/json:
+*           schema:
+*             $ref: '#/components/schemas/Blog'
+*   responses:
+*      200:
+*          description: Blogs Created Successfully!
+*      400:
+*          $ref: '#/components/responses/400'
 */
-router.delete("/:id", blogController.deleteBlog);
+router.post("/blog", blogController.createBlog);
+/**
+* @swagger
+* /blog:
+*  get:
+*    summary: getting all blogs published
+*    tags: [Blog]
+*    responses:
+*       200:
+*           description: All blogs is here!
+*           content:
+*             application/json:
+*               schema:
+*                 type: array
+*               items:
+*                $ref: '#/components/schemas/schemas/Blog'
+*/
+
+router.get("/blog", blogController.getBlogs);
+/**
+* @swagger
+* /blog/{id}:
+*  get:
+*    summary: get blog
+*    tags: [Blog]
+*    parameters:
+*        - $ref: '#/components/parameters/blogId'
+*    requestBody:
+*        required: true
+*        content:
+*           application/json:
+*                 schema:
+*                     $ref: '#/components/schemas/Blog'
+*    responses:
+*         200:
+*             description: Successfully found
+*         400:
+*             $ref: '#/components/responses/400'
+*         401:
+*             $ref: '#/components/responses/401'
+*         404:
+*            description: not found
+*/
+
+router.get("/blog/:id", blogController.getBlogById);
+
+/**
+* @swagger
+* /blog/{id}:
+*  patch:
+*    summary: updating blogs
+*    tags: [Blog]
+*    parameters:
+*        - $ref: '#/components/parameters/blogId'
+*    requestBody:
+*        required: true
+*        content:
+*           application/json:
+*                 schema:
+*                     $ref: '#/components/schemas/Blog'
+*    responses:
+*         200:
+*             description: Success update
+*         400:
+*             $ref: '#/components/responses/400'
+*         401:
+*             $ref: '#/components/responses/401'
+*         404:
+*            description: not found
+*/
+router.patch("/blog/:id", blogController.updateBlog);
+
+/**
+* @swagger
+*  /blogs/{id}:
+*    delete:
+*     summary: Delete one blog
+*     tags: [Blog]
+*     parameters:
+*         - $ref: '#/components/parameters/blogId'
+*     responses:
+*        200:
+*         description: Blog deleted
+*        401:
+*         description: Unauthorized
+*        404:
+*         description: not found
+*/
+router.delete("/blog/:id", blogController.deleteBlog);
  
 
 module.exports = router;

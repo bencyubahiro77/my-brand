@@ -3,40 +3,44 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const dotenv= require('dotenv');
-const swaggerJSdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+const SwaggerUI = require('swagger-ui-express');
+const swaggerJSDoc = require('swagger-jsdoc');
+
 
 
 const blogRouter = require('./routes/blog');
 const commentRoutes = require('./routes/comment');
 const contactRoutes = require('./routes/contact');
 const authRoutes = require('./routes/auth');
-//const { version } = require("chai");
-//const likeRoutes = require('./routes/like');
 
 dotenv.config({
     path:"./.env"
 });
 const app = express();
 
-const options ={ 
-    definition: {
+const swaggerOptions = {  
+    swaggerDefinition: {
         openapi : '3.0.0',
         info : {
-            title: 'Blog,contact,authentication and comment APIs',
+            title: 'Ben Apis documentation',
             version: '1.0.0',
+            description: 'Blog,contact,authentication and comment APIs',
+            contact:{
+                name :"benjamin"
+            },
         },
-        servers:[
-            {
-                url: 'http://localhost:3000/api'
-            }
-        ]
+        servers:[ 
+            { 
+                url:'http://localhost:3000'
+            } 
+        ],
+       
     },
-    apis: ['./routes/blog.js', './routes/contact.js', './routes/auth.js', './routes/comment.js']
+    apis: ['./routes/*.js']
 }
-const swaggerSpec = swaggerJSdoc(options)
 
-app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec));
+const swaggerDocs = swaggerJSDoc(swaggerOptions)
+
 
 //middleware
 app.use(express.json());
@@ -46,8 +50,8 @@ app.use("/api/blogs", blogRouter);
 app.use('/comment', commentRoutes);
 app.use('/contact', contactRoutes);
 app.use('/api/auth', authRoutes);
-//app.use('/api/likes', likeRoutes);
 
+app.use('/api-docs', SwaggerUI.serve, SwaggerUI.setup(swaggerDocs));
 
 app.use((req, res, next) => {
     const token = req.header("x-auth-token");
@@ -63,6 +67,7 @@ app.use((req, res, next) => {
     return res.status(401).json({ message: "Token is not valid" });
     }
     });
+    
 
 const PORT = process.env.PORT || 3000;
 const DB = process.env.DB_ONLINE;
@@ -82,4 +87,5 @@ console.log(`Server is running on port ${PORT}`);
 console.log(error.message);
 });
  
+
 

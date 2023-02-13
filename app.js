@@ -84,7 +84,7 @@ console.log(`Server is running on port ${PORT}`);
 });
 })
 .catch(error => {
-console.log(error.message);
+console.log('HERE ' +  error.message);
 });
  
 

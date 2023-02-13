@@ -8,7 +8,8 @@ required: true,
 },
 email: {
 type: String,
-required: true
+required: true,
+unique: false
 },
 message: {
 type: String,

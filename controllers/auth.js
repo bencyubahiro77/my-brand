@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
+
+
 const register = async (req, res) => {
 try {
 const { firstName, lastName, email, password } = req.body;
@@ -23,7 +25,7 @@ email: savedUser.email
 };
 
 const token = jwt.sign(payload, process.env.JWT_SECRET, {
-expiresIn: "2h"
+expiresIn: "5h"
 });
 
 res.status(201).json({ message: "User created", user: savedUser, token });
@@ -31,6 +33,8 @@ res.status(201).json({ message: "User created", user: savedUser, token });
 res.status(500).json({ message: error.message });
 }
 };
+
+
 
 const login = async (req, res) => {
 try {
@@ -52,7 +56,7 @@ email: user.email
 };
 
 const token = jwt.sign(payload, process.env.JWT_SECRET, {
-expiresIn: "1h"
+expiresIn: "3h"
 });
 
 res.status(200).json({ message: "Login successful", user, token });

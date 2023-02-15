@@ -39,9 +39,7 @@ const { register, login } = require("../controllers/auth");
 *         password:
 *             type: string
 *             description:  password of the user
-*         id:
-*             type: string
-*             description: User Id
+*        
 *  parameters:
 *         userId:
 *            name: id

@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const dotenv= require('dotenv');
 const SwaggerUI = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
+const cors = require('cors')
 
 
 
@@ -43,8 +44,9 @@ const swaggerDocs = swaggerJSDoc(swaggerOptions)
 
 
 //middleware
-app.use(express.json());
 app.use(bodyParser.json());
+app.use(express.json());
+app.use(cors());
 
 app.use("/api/blogs", blogRouter);
 app.use('/comment', commentRoutes);

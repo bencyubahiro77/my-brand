@@ -7,7 +7,7 @@
     <title>My Brand</title>
     <link rel="stylesheet" href="wholepage.css">
     <script src="https://kit.fontawesome.com/3ac835aa79.js" crossorigin="anonymous"></script>
-    <script src ="login2.js"></script>
+    <script src =""></script>
 </head>
 
 <body>
@@ -35,95 +35,51 @@
 
         <div class="main__containerblog">
            <h1 class="sub-title">My Blog</h1>
-           <button class="newblog" id="add-new-blog" style="display: none;"><a href="" >Add new blog</a></button>
-            <div class="work-list">
-                <div class="work">
+            <div class="work-list" id="blog-container">
+
+               <!-- <div class="work">
                     <img src="/pics used/children-gaef310eda_1920.jpg">
-                    <div class="layer">
-                        <h3> First Blog</h3>
+                        <h3>First Blog</h3>
                         <p> My first blog project will be related 
                             hjjkjkjjjdjkqndkd kdnkdnqlqmdlmqdldgvhg
                             jndjqndkjqn dkqdnqkdnqk knqdkjqndjkndk ndk
                         </p>
-                    </div>
                     <button class="main__btn"><a href="openblog.html">Read more</a></button> 
+                 
                 </div>
-                <div class="work">
-                    <img src="/pics used/children-gaef310eda_1920.jpg">
-                    <div class="layer">
-                        <h3>Second Blog</h3>
-                        <p> This will be my second blog will be related 
-                            fbwfbwfbwkfnwjkn jknqj  jfbfqkfnqfjnff
-                            ffjknfjnf jkfnfjwjnf wbfhwbfhfb    
-                        </p>
-                    </div>  
-                    <button class="main__btn"><a href="openblog.html">Read more</a></button> 
-                </div>
-                <div class="work">
-                    <img  src="/pics used/children-gaef310eda_1920.jpg">
-                    <div class="layer">
-                        <h3>Third Blog</h3>
-                        <p> The third blog of my website will be related
-                            to design qwert qwert qwert qeewrs
-                            qweredt qweretr wewrewtert egtgthyh
-                        </p>
-                    </div>  
-                    <button class="main__btn"><a href="openblog.html">Read more</a></button> 
-                </div>    
-                    <div class="work">
-                        <img src="/pics used/children-gaef310eda_1920.jpg">
-                        <div class="layer">
-                            <h3>Fourth Blog</h3>
-                            <p> This will be my fourth blog which i will be talking a football
-                                matvh between france vs Maroc bhjwb hjbfhjbjabcj
-                            </p>
-                        </div>  
-                        <button class="main__btn"><a href="openblog.html">Read more</a></button> 
-                    </div> 
-                    <div class="work">
-                        <img  src="/pics used/children-gaef310eda_1920.jpg">
-                        <div class="layer">
-                            <h3>Fifth Blog</h3>
-                            <p>The fifth blog of my website will be related
-                                to designnjnfjwfnjnwjfnwjfnwjfnwfjnwfjwnfjn
-                                jnfjnwfjwenfj wfnwjefnwf nwfnwfjnwf jwnfjwfnwjf
-                            </p>
-                        </div> 
-                        <button class="main__btn"><a href="openblog.html">Read more</a></button> 
-                    </div> 
+            -->
+                
             </div>
+            
         </div>
            
-
-<div class="footer__section">
-    <div class="footer__links">
-        <div class="footer__links--wrapper">
-            <div class="footer__links--items">
-                <h2>About Me</h2>
-                <a href="aboutme.html">My Profile</a>
-                <a href="aboutme.html"> Career</a>
-                <a href="aboutme.html">Hobby</a>
-            </div>
-            <div class="footer__links--items">
-                <h2>Operation</h2>
-                <a href="contact.html">Contact</a>
-                <a href="login.html"> Admin board</a>
-                <a href="">Sponsorship</a>
-            </div>
+        <div class="footer__section">
+            <div class="footer__links">
+                <div class="footer__links--wrapper">
+                    <div class="footer__links--items">
+                        <h2>About Me</h2>
+                        <a href="aboutme.html">My Profile</a>
+                        <a href="aboutme.html"> Career</a>
+                        <a href="aboutme.html">Hobby</a>
+                    </div>
+                    <div class="footer__links--items">
+                        <h2>Operation</h2>
+                        <a href="contact.html">Contact</a>
+                        <a href="login.html">Admin board</a>
+                        <a href="">Sponsorship</a>
+                    </div>
+                    <div class="footer__links--items">
+                        <h2>Social Media</h2>
+                        <a href="">Instagram</a>
+                        <a href=""> Twitter</a>
+                        <a href="https://www.youtube.com/channel/UCcCTumFn7WHeC3SOJ-6M05w">Youtube</a>
+                    </div>
+                </div>
+            </div> 
+            <div class="social__media">
+                <p class="Website__rights">BENO &#169; 2023 All rights reserved.</p>
         </div>
-        <div class="footer__links--wrapper">
-            <div class="footer__links--items">
-                <h2>Social Media</h2>
-                <a href="">Instagram</a>
-                <a href=""> Twitter</a>
-                <a href="https://www.youtube.com/channel/UCcCTumFn7WHeC3SOJ-6M05w">Youtube</a>
-            </div>
-        </div>
-    </div>
-    <div class="social__media">
-            <p class="Website__rights">BENO &#169; 2023 All rights reserved.</p>
-    </div>
-</div> 
+        </div> 
 <script>
     var sidemenu = document.getElementById("sidemenu");
     
@@ -134,6 +90,42 @@
         sidemenu.style.right ="-190px";
     }
     
-    </script>  
+</script>  
+
+<script>
+const container = document.querySelector('.work-list')
+console.log(container);
+
+const newData = {
+    method: 'GET',
+    headers: {
+        'Content-Type': "application/json"
+            // "authorization": `Bearer ${token}`
+    }
+}
+console.log(newData)
+fetch("https://marthairadukunda.cyclic.app/api/blogs", newData)
+    .then(async(n) => {
+        const res = await n.json()
+        console.log(res)
+        let allblogs = res.data
+            // const grid = document.querySelector(".grid")
+        allblogs.forEach((data) => {
+
+            id = JSON.stringify(data._id);
+            container.innerHTML += `
+            <div class="work">  
+            <img src="/pics used/children-gaef310eda_1920.jpg">    
+            <h3>${data.title}</h3>
+            <p>${data.blogBody}</p>
+            <button class="main__btn"><a href="openblog.html">Read more</a></button> 
+        </div>`
+        })
+
+    })
+
+
+</script>
+
 </body>
 </html>

@@ -78,9 +78,9 @@
 }
 
 .mainaboutme .about-col-2{
-    width: 75%;
+    width: 90%;
     height: 100%;
-    padding: 40px 100px 100px;
+    padding: 20px 20px 20px;
     background-color:#021525;;
     color: whitesmoke;
 }
@@ -102,7 +102,7 @@ table{
 th, 
 td{
     padding: 15px;
-    text-align: left;
+    text-align: row;
     border-bottom: 1px solid rgb(145, 173, 145);
 }
 .edit{
@@ -169,12 +169,9 @@ form div{
 }
 /*--------------------------------------------small screen------------------*/
 @media only screen and (max-width:600px){
-    .mainaboutme .about-col-2{
-        width: 75%;
-        padding: 10px 20px 20px;
-    }
+    
     table{
-        width: 70%;
+        width: 100%;
         border-collapse: collapse;
         font-size: 0.7rem;
     }
@@ -190,7 +187,7 @@ form div{
         margin-bottom: 30px;
     }
     .contact_table{
-        width: 120%;
+        width: 100%;
     }
     .homepage__container{
       padding:15px;

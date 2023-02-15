@@ -1,7 +1,8 @@
     
         body{
             margin: 0;
-            background-color:#021525;;
+            background-color:#021525;
+            
         
         }
          #header{
@@ -55,25 +56,14 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            justify-self: center;
             margin: 0 auto;
             height: 100%;
-            width: 100%;
-            max-width: 1000px;
-            ;
-           
-            
+            max-width: 70%;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            justify-content: center;
          }
-         .main__content h1{
-            font-size: 4rem;
-            background-color: rgb(128, 51, 0);
-            background-image: linear-gradient(to top,aqua,aqua 100%);
-            background-size: 100%;
-           -webkit-background-clip: text;
-            -moz-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            -moz-text-fill-color:transparent;
-         }
+        
          .main__content h2{
             font-size: 4rem;
             background-color: rgb(12, 12, 12);
@@ -141,11 +131,7 @@
             margin-bottom: 4rem;
             padding-left: 40px;
         }   
-        .main__content h1{
-            font-size: 2.5rem;
-            margin-top: 2rem;
-            text-align: left;
-        }
+        
         .main__content h2{
             font-size: 3rem;
         }
@@ -314,10 +300,9 @@
  .comment{
     color:aqua;
     display: flex;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    margin-left: 50px;
-
+    padding-left: 50px;
+    margin: 0px;
+    max-width: 40%;
 
  }
  .comment p{
@@ -337,7 +322,6 @@
      margin-top: 50px;
      margin-left: 0px;
      margin-bottom: 50px;
-     text-align: center;
   }
   .work{
      border-radius: 10px;
@@ -358,12 +342,12 @@
   .layer h3{
     width: 250px;
     text-align: center;
-    margin-left: 35px;
   }
   .layer p{
     display: block;
     max-height: 4.5em;
     overflow: hidden;
+    width: 100%;
   }
 
   
@@ -372,9 +356,12 @@
  border-radius: 10px;
  display: block;
  text-align: center;
- margin-left: 50px;
  
   }
+ .work .main__btn{
+    justify-content: center;
+ }
+  
  /*--------------------------------------------Contact-----------------------------*/
  
 .main__containercontact{
@@ -392,6 +379,7 @@
 .rowcontact{
  display: flex;
  align-items: center;
+ padding: auto;
 }
 .contact-left{
  flex-basis: 75%;
@@ -441,7 +429,6 @@ form input, form textarea{
  border: 6px;
 }
 form .btn.btn2{
- padding: 14px 60px;
  margin-top: 20px;
  cursor: pointer;
 }
@@ -468,7 +455,7 @@ form .btn.btn2{
  margin-top: 50px;
  margin-left: 0px;
  margin-bottom: 50px;
- text-align: center;
+ 
 }
 
 .work{
@@ -480,6 +467,7 @@ form .btn.btn2{
 .work h3{
  color: rgb(238, 96, 13);
  text-align: center;
+ width: 100%;
 
 }
 .work img{
@@ -487,13 +475,12 @@ width: 100%;
 border-radius: 10px;
 display: block;
 transition: transform 0.5s;
-text-align: center;
-margin-left: 50px;
 
 }
 .work:hover img{
     transform:scale(1.1);
 }
+
 /*------------------------------------------skills--------------------------------------*/
 
 .main__containerskills{
@@ -547,7 +534,7 @@ margin-left: 50px;
     animation: javascript 3s;
 }
 .ArduinoIde{
-    width: 60%;
+    width: 80%;
     animation: ArduinoIde 3s;
 }
 @keyframes html{
@@ -594,12 +581,12 @@ margin-left: 50px;
             justify-content: center;
             align-items: center;
             width: 100%;
+            align-items: center;
         
             
         }
         .footer__links{
-            width: 100%;
-            max-width: 1000px;
+            max-width: 100%;
             display: flex;
             justify-content: center;
 
@@ -610,9 +597,7 @@ margin-left: 50px;
         .footer__links--items{
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
             margin: 14px;
-            text-align: left;
             width: 160px;
             box-sizing: border-box;
 
@@ -639,11 +624,6 @@ margin-left: 50px;
         font-size: 24px;
 
        }
-       .social__media{
-        max-width: 1000px;
-        width:100%;
-        
-       } 
        
        .Website__rights{
         color:#fff;
@@ -670,7 +650,7 @@ margin-left: 50px;
         text-align: center;
      }
      .mainopen img{
-        max-width: 85%;
+        max-width: 90%;
         height: 50%;
         margin: auto;
         display: block;
@@ -684,7 +664,11 @@ margin-left: 50px;
      }
      .mycomment{
         max-width: 40%;
-        padding: 30px;
+        padding: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 47.5px;
+        
      }
       /*------------------------------small screen-----------------------------*/
 
@@ -705,16 +689,10 @@ margin-left: 50px;
          height: 100%;
         }
 
-        .main__content h1{
-            margin-top: 20px;
-            font-size: 30px;
-            text-align: center;
-        }
         .main__img--container{
             padding-top: 40px;
-            text-align: center;
-            width: 300px;
-            margin-left: 50px;
+            justify-content: center;
+            width: 100%;
         
         }
         nav .logo{
@@ -727,7 +705,7 @@ margin-left: 50px;
             right: -190px;
             width: 150px;
             height: 100vh;
-            padding-top: 50px;
+            padding-top: 30px;
             z-index: 3;
         }
         nav .fas{
@@ -790,11 +768,11 @@ margin-left: 50px;
         /*----------------------------------contact me-----------------*/
          .main__containercontact{
             padding: 0 20px;
-            margin-top: -20px;
+            margin-top: 20px;
             margin-right: 0px;
             width: 200px;
             margin-left: 0px;
-            height: 700px;
+            height: 100%;
             
          }
          .rowcontact{
@@ -815,12 +793,6 @@ margin-left: 50px;
             display: grid;
             width: 350px;
          }
-         
-         .work-list{
-            display: grid;
-            width: 400px;
-            margin-left: 50px;
-         }
 
          .footer__links--wrapper{
             display: grid;
@@ -840,10 +812,6 @@ margin-left: 50px;
          .main__containeraboutme{
             height: 100%;
          }
-         .work img{
-            width: 70%;
-            position: relative;
-        }
         /*--------------blog and work-----------*/
         .main__containerblog{
             height: 100%;
@@ -853,25 +821,14 @@ margin-left: 50px;
             height: 100%;
             padding-top: 20px;
         }
-        .layer{
-            width:300px;
-
-        }
-        .newblog{
-            text-align: left;
-            padding-left: 15px;
-            height: fit-content;
-            
-        }
-        .work-list{
-         width: 298px;
+        .work{
+            width: 80%;
+            margin: 0 auto;
+            padding: 15px;
         }
         /*-------------skills---------------*/
         .main__containerskills{
-            width: 300px;
-        }
-        .mainskills{
-            margin-left: 10px;
+            width: 80%;
         }
         
         .logo{

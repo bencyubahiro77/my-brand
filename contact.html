@@ -7,7 +7,6 @@
     <title>My Brand</title>
     <link rel="stylesheet" href="wholepage.css">
     <script src="https://kit.fontawesome.com/3ac835aa79.js" crossorigin="anonymous"></script>
-    <script src ="login2.js"></script>
 </head>
 
 <body>
@@ -28,7 +27,6 @@
                 </ul> 
                 <i class="fas fa-bars" onclick="openmenu()"></i>
               </nav>
-    
          </div>
     
     </div>
@@ -37,17 +35,17 @@
          <div class="rowcontact">
             <div class="contact-left">
                 <h1 class="sub-title">Contact Me</h1>
-                <p></i> bencyubahiro77@gmail.com</p>
-                <p></i>  +(250)782522792</p>
+                <p></i>bencyubahiro77@gmail.com</p>
+                <p></i>Tel: +(250)782522792</p>
                 </div>
             <div class="contact-right" >
-                <form id="contact-form" >
+                <form>
                     <input type="text" name="name" placeholder="Your Name" id="name" required>
                     <input type="email" name="email" placeholder="Your Email" id="email" required>
                     <textarea name="message" rows="6" placeholder="Your Message" id="message" required></textarea>
-                    <button type="submit" class="btn btn2" onclick="sendMessage()">Submit</button>
-                </form>
-                
+                    <button type="submit" id="submit_button" class="btn btn2" >Submit</button>
+                  </form>
+                  
             </div>
          </div>
         </div>
@@ -68,8 +66,6 @@
                 <a href="login.html">Admin board</a>
                 <a href="">Sponsorship</a>
             </div>
-        </div>
-        <div class="footer__links--wrapper">
             <div class="footer__links--items">
                 <h2>Social Media</h2>
                 <a href="">Instagram</a>
@@ -77,7 +73,7 @@
                 <a href="https://www.youtube.com/channel/UCcCTumFn7WHeC3SOJ-6M05w">Youtube</a>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="social__media">
         <p class="Website__rights">BENO &#169; 2023 All rights reserved.</p>
 </div>
@@ -91,7 +87,56 @@
     function closemenu(){
         sidemenu.style.right ="-190px";
     }
-    
+</script>
+
+<script>
+
+        const submit = document.querySelector('#submit_button')
+        const name = document.querySelector('#name')
+        const email = document.querySelector('#email')
+        const message = document.querySelector('#message')
+
+        submit.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            const contactData = {
+                name: name.value,
+                email: email.value,
+                message: message.value
+
+            }
+
+            console.log(contactData)
+
+            const newData = {
+                method: 'POST',
+                
+
+                headers: {
+                    'Content-Type': "application/json"
+
+                    // "authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(contactData),
+                mode:'no-cors'
+            }
+
+            console.log(newData)
+            fetch("https://beno-backend.onrender.com/contact/message", newData)
+                .then(async(n) => {
+                    const res = await n.json()
+                    console.log(res)
+                    if (res) {
+                        alert('Message Sent');
+                        location.reload();
+                    } else {
+                        alert('Message not sent!')
+                    }
+
+                })
+        })
     </script>
+    
+  
 </body>
 </html>

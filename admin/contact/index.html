@@ -15,10 +15,7 @@
            <nav>
             
             <img src="/pics used/beno logo 2.png" class="logo">
-            <select>
-                <option value="manage-profile">Manage Profile</option>
-                <option value="logout">logout</option>
-            </select> 
+            <button style="color: whitesmoke; cursor: pointer; border: none; "><a href="/index.html">Home</a></button>
           </nav>
     
          </div>
@@ -29,7 +26,6 @@
             <ul>
                <li><a href="../blog post/blog.html">Manage Blog</a></li>
                <li><a href="../users/index.html">Manage Users</a></li>
-               <li><a href="../my work/index.html">Manage Work</a></li>
                <li><a href="index.html">Manage Contact</a></li>
             </ul>
         </div>
@@ -40,22 +36,52 @@
         <div class="content">
             <h2 class="page-title">Read Message</h2>
 
-            <table class="contact_table">
+            <table class="contact_table" id="messages">
                 <thead>
+                  <tr>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Message</th>
+                  </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>BENO</td>
-                        <td>ben@gmail.com</td>
-                        <td>hello there, what is going on</td>
-                    </tr>
-                </tbody>
+                <tbody class="table-body">
+
+                </tbody> 
             </table>          
         </div>    
      </div>         
     </div>
+    
+<script>
+
+const messages = document.querySelector(".table-body")
+const newData = {
+    method: 'GET',
+    headers: {
+        'Content-Type': "application/json"
+            // "authorization": `Bearer ${token}`
+    }
+}
+console.log(newData)
+fetch("https://beno-backend.onrender.com/contact/message", newData)
+    .then(async(n) => {
+        const res = await n.json()
+        console.log(res)
+
+        res.forEach(message => {
+            messages.innerHTML += `
+        
+            <tr>
+            <td>${message.name}</td>
+            <td>${message.email}</td>
+            <td>${message.message}</td>
+             </tr>
+            `
+        })
+
+    })
+
+</script>
    
 </body>
+</html>

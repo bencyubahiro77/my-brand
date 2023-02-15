@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Brand</title>
     <link rel="stylesheet" href="login.css">
-    <script src ="login2.js"></script>
+    <script src=""></script>
 </head>
 <body>
     <div class="loginbox">
@@ -17,11 +17,68 @@
                 <input type="email" name="email" placeholder="Enter Email" id="email" required >
             <p>Password</p>
                 <input type="password" name="password"placeholder="Enter Password" id="password" required >
-            <button type="submit" onclick="myform()" class="btn4" >login</button>  
+            <button type="submit" class="btn4" >login</button>  
 
             <p class="footerlogin">Forgot your password? <a href="#">Reset</a></p>
             <p class="footerlogin">Don't have an account?<a href="signin.html"> Sign up</a></p>
         </form>
-    </div>    
+    </div>   
+    
+ 
+ <script>
+
+        const submit = document.querySelector('.btn4')
+        const email = document.querySelector('#email')
+        const password = document.querySelector('#password')
+
+        submit.addEventListener('click', async(e) => {
+            e.preventDefault()
+
+            const loginData = {
+                email: email.value,
+                password: password.value,
+            }
+            console.log(loginData)
+            try {
+                const newData = {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': "application/json"
+
+                    },
+                    body: JSON.stringify(loginData)
+                }
+
+                console.log(newData)
+                await fetch("https://beno-backend.onrender.com/api/auth/login", newData)
+
+                .then(async(n) => {
+
+                    const res = await n.json()
+                    console.log(res)
+                    if (n.status == 200) {
+                        alert('You have signed in successfully ');
+                        localStorage.setItem("token", res.token);
+                        console.log(res)
+                        location.reload();
+                        window.location.replace("index.html");
+
+                    } else {
+                        alert('Please put the correct email and password!')
+                    }
+
+                }).catch(error => {
+                    console.log(error)
+
+                })
+
+
+            } catch (error) {
+                console.log('Wrong input email or password')
+            }
+        })
+
+  </script> 
 </body>
 </html> 

@@ -58,7 +58,7 @@
                     const res = await n.json()
                     console.log(res)
                     if (n.status == 200) {
-                        alert('You have signed in successfully ');
+                       // alert('You have signed in successfully ');
                         localStorage.setItem("token", res.token);
                         console.log(res)
                         location.reload();

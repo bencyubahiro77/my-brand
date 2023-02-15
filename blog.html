@@ -104,7 +104,7 @@ const newData = {
     }
 }
 console.log(newData)
-fetch("https://marthairadukunda.cyclic.app/api/blogs", newData)
+fetch("https://beno-backend.onrender.com/api/blogs/blog", newData)
     .then(async(n) => {
         const res = await n.json()
         console.log(res)

@@ -54,32 +54,29 @@
     
 <script>
 
-const messages = document.querySelector(".table-body")
-const newData = {
-    method: 'GET',
-    headers: {
-        'Content-Type': "application/json"
-            // "authorization": `Bearer ${token}`
+const messages = document.querySelector(".table-body");
+
+fetch("https://beno-backend.onrender.com/contact/message")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
     }
-}
-console.log(newData)
-fetch("https://beno-backend.onrender.com/contact/message", newData)
-    .then(async(n) => {
-        const res = await n.json()
-        console.log(res)
-
-        res.forEach(message => {
-            messages.innerHTML += `
-        
-            <tr>
-            <td>${message.name}</td>
-            <td>${message.email}</td>
-            <td>${message.message}</td>
-             </tr>
-            `
-        })
-
-    })
+    return response.json();
+  })
+  .then((data) => {
+    data.messages.forEach((message) => {
+      messages.innerHTML += `
+        <tr>
+          <td>${message.name}</td>
+          <td>${message.email}</td>
+          <td>${message.message}</td>
+        </tr>
+      `;
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching messages:", error);
+  });
 
 </script>
    

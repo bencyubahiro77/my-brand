@@ -26,10 +26,6 @@ error: err.message
 exports.getBlogs = async (req, res) => {
 try {
 const blogs = await Blog.find();
-blogs=blogs.map(blog=>{
-    blog.content=blog.content.slice(0,30);
-    return blog;
-})
 res.status(200).json({
 message: "Blogs fetched successfully",
 blogs: blogs

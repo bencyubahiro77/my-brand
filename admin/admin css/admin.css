@@ -80,9 +80,11 @@
 .mainaboutme .about-col-2{
     width: 90%;
     height: 100%;
-    padding: 20px 20px 20px;
+    padding-top: 20px;
     background-color:#021525;;
     color: whitesmoke;
+    text-align: center;
+    
 }
 .btnblog{
     height: 35px;

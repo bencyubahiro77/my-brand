@@ -7,6 +7,8 @@
     <title>My Brand</title>
     <link rel="stylesheet" href="../admin css/admin.css">
     <script src="https://kit.fontawesome.com/3ac835aa79.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
 </head>
 
 <body>
@@ -33,83 +35,68 @@
 
                 <div class="about-col-2">
                     <div class="button-group">
-                        <button><a href="create.html"class="btnblog">Add blog</a></button>
-                        <button><a href="blog.html"class="btnblog">Manage blog</a></button>
+                        <button type="button"><a href="create.html"class="btnblog">Add blog</a></button>
+                        <button type="button"><a href="blog.html"class="btnblog">Manage blog</a></button>
                     </div>
 
                     <div class="content">
                         <h2 class="page-title">Add New Blog</h2>
                         
-                      <form  id="new-post-form">
+                      <form id="post-form">
                         <div>
                           <p>Title</p>
-                          <input type="text" name="title" id="blogtitle" class="text-input"> 
+                          <input type="text" name="title" id="title" class="text-input"> 
                         </div>
-                        <div>
+                        <div style="padding-left: 30px;">
                             <p>Body</p>
-                            <textarea name="body" id="blogbody" class="body-input"></textarea>
+                            <textarea name="content" id="content" class="body-input"></textarea>
                         </div>
                         <div>
                             <p>Image</p>
-                            <input type="file" name="image" id="blogimage" class="text-input">
+                            <input type="file" name="image" id="image" class="text-input">
                         </div>
                         <div>
-                            <button type="submit"  class="btnblog">Create Post</button>
+                            <button type="submit" id="submit" class="btnblog">Create Post</button>
                         </div>
                       </form>
                             
                     </div>
                     
-                </div>                
-   </div>
-  
-   
+                </div>    
+    </div>  
+
 <script>
 
-const submit = document.querySelector('.btnblog')
-const blogtitle = document.querySelector('#blogtitle')
-const blogbody = document.querySelector('#blogbody')
-const blogimage = document.querySelector('#blogimage')
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("post-form");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var title = document.getElementById("title").value;
+        var content = document.getElementById("content").value;
+        var image = document.getElementById("image").value;
 
-console.log(blogtitle, blogbody, blogimage);
-
-
-submit.addEventListener('click', (e) => {
-    e.preventDefault()
-
-    const blogData = {
-        title: blogtitle.value,
-        blogBody: blogbody.value,
-        blogimage: blogimage.value
-
-    }
-    console.log(blogData)
-
-    const newData = {
-        method: 'POST',
-
-        headers: {
-            'Content-Type': "application/json"
-
-            // "authorization": `Bearer ${token}`
-        },
-        body: JSON.stringify(blogData)
-    }
-
-    console.log(newData)
-    fetch("https://marthairadukunda.cyclic.app/api/blogs", newData)
-        .then(async(n) => {
-            const res = await n.json()
-            console.log(res)
-            if (res.status == 'success') {
-                alert('Blog created');
-                location.reload();
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://beno-backend.onrender.com/api/blogs/blog");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onload = function() {
+            if (xhr.status === 201) {
+                alert("Post created successfully!");
             } else {
-                alert('Blog not created!')
+                alert("An error occurred while the post being created.");
             }
+        };
+        xhr.onerror = function() {
+            alert("An error occurred while creating the post.");
+        };
+        xhr.send(JSON.stringify({
+            title: title,
+            content: content,
+            image: image
+        }));
+    });
+});
 
-        })
-})
+
 
 </script>
 </body>

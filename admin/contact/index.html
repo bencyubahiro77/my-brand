@@ -65,13 +65,14 @@ fetch("https://beno-backend.onrender.com/contact/message")
   })
   .then((data) => {
     data.messages.forEach((message) => {
-      messages.innerHTML += `
+      const row = `
         <tr>
           <td>${message.name}</td>
           <td>${message.email}</td>
           <td>${message.message}</td>
         </tr>
       `;
+      messages.insertAdjacentHTML('afterbegin', row);
     });
   })
   .catch((error) => {

@@ -41,8 +41,6 @@
                     <img src="/pics used/children-gaef310eda_1920.jpg">
                         <h3>First Blog</h3>
                         <p> My first blog project will be related 
-                            hjjkjkjjjdjkqndkd kdnkdnqlqmdlmqdldgvhg
-                            jndjqndkjqn dkqdnqkdnqk knqdkjqndjkndk ndk
                         </p>
                     <button class="main__btn"><a href="openblog.html">Read more</a></button> 
                  
@@ -93,36 +91,38 @@
 </script>  
 
 <script>
-const container = document.querySelector('.work-list')
+const container = document.querySelector('.work-list');
 console.log(container);
 
 const newData = {
-    method: 'GET',
-    headers: {
-        'Content-Type': "application/json"
-            // "authorization": `Bearer ${token}`
-    }
-}
-console.log(newData)
+  method: 'GET',
+  headers: {
+    'Content-Type': "application/json"
+  }
+};
+console.log(newData);
+
 fetch("https://beno-backend.onrender.com/api/blogs/blog", newData)
-    .then(async(n) => {
-        const res = await n.json()
-        console.log(res)
-        let allblogs = res.data
-            // const grid = document.querySelector(".grid")
-        allblogs.forEach((data) => {
+  .then(async (n) => {
+    const res = await n.json();
+    //console.log(res)
+    let allblogs = res.blogs;
+    console.log(allblogs);
 
-            id = JSON.stringify(data._id);
-            container.innerHTML += `
-            <div class="work">  
-            <img src="/pics used/children-gaef310eda_1920.jpg">    
-            <h3>${data.title}</h3>
-            <p>${data.blogBody}</p>
-            <button class="main__btn"><a href="openblog.html">Read more</a></button> 
-        </div>`
-        })
+    allblogs.forEach((data) => {
+      id = JSON.stringify(data._id);
+      const blogPost = document.createElement('div');
+      blogPost.classList.add('work');
+      blogPost.innerHTML = `
+        <!-- <img src=${data.image}> -->
+        <h3>${data.title}</h3>
+        <p>${data.content}</p>
+        <button class="main__btn"><a href="openblog.html">Read more</a></button> 
+      `;
+      container.insertBefore(blogPost, container.firstChild);
+    });
+  });
 
-    })
 
 
 </script>

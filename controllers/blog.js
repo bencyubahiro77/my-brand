@@ -6,7 +6,7 @@ exports.createBlog = async (req, res) => {
 try {
 const blog = new Blog({
 title: req.body.title,
-//image: req.body.image,
+image: req.body.image,
 content: req.body.content
 });
 const savedBlog = await blog.save();

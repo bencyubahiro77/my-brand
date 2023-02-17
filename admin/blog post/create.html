@@ -50,13 +50,14 @@
                           <input type="text" name="title" id="title" class="text-input"> 
                         </div>
                         <div style="padding-left: 30px;">
-                            <p>Body</p>
+                            <p>Content</p>
                             <textarea name="content" id="content" class="body-input"></textarea>
                         </div>
-                        <div>
+                       <div>
                             <p>Image</p>
                             <input type="file" name="image" id="image" class="text-input">
                         </div>
+                        
                         <div>
                             <button type="submit" id="submit" class="btnblog">Create Post</button>
                         </div>
@@ -131,7 +132,7 @@ submit.addEventListener('click', (e) => {
     .then(async(n) => {
             const res = await n.json()
             console.log(res)
-            if (res){
+            if (res.status == 'success') {
                 alert('Blog created');
                 location.reload();
             } else {
@@ -139,9 +140,6 @@ submit.addEventListener('click', (e) => {
             }
 
         })
-        .catch((error) => {
-       console.error("Error fetching blog:", error);
-  });
 })
 
 

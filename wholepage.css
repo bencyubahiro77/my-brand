@@ -670,6 +670,9 @@ transition: transform 0.5s;
         padding-left: 60px;
         
      }
+     /*-------------------comment-----------------------------------*/
+     
+    
       /*------------------------------small screen-----------------------------*/
 
      @media only screen and (max-width:600px){

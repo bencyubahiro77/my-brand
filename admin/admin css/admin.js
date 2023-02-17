@@ -16,8 +16,8 @@ fetch('https://beno-backend.onrender.com/api/blogs/blog', newData)
       const row = document.createElement('tr');
       row.innerHTML = `
         <td>${blog.title}</td>
-        <td><a href="edit.php?id=${blog.id}">Edit</a></td>
-        <td><a href="#" onclick="deleteBlog(${blog.id})">Delete</a></td>
+        <td><a href="edit.php?id=${blog._id}">Edit</a></td>
+        <td><a href="#" onclick="deleteBlog('${blog._id}')">Delete</a></td>
       `;
       blogList.insertAdjacentElement('afterbegin', row); // Add the row to the top of the table
     });
@@ -25,28 +25,27 @@ fetch('https://beno-backend.onrender.com/api/blogs/blog', newData)
   .catch((error) => console.error(error));
 
 
-  function deleteBlog(blogId) {
-    // Confirm with the user before deleting the blog
-    const confirmed = confirm('Are you sure you want to delete this blog?');
-    if (!confirmed) {
-      return;
-    }
-  
-    // Send a DELETE request to the backend API to delete the blog
-    fetch(`https://beno-backend.onrender.com/api/blogs/blog/${blogId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-        // 'authorization': `Bearer ${token}`
-      }
-    })
-    .then(response => {
+function deleteBlog(blogId) {
+  // Confirm with the user before deleting the blog
+  const confirmed = confirm('Are you sure you want to delete this blog?');
+  if (!confirmed) {
+    return;
+  }
+
+  // Send a DELETE request to the backend API to delete the blog
+  fetch(`https://beno-backend.onrender.com/api/blogs/blog/${blogId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => {
       if (response.status === 204) {
         // Remove the deleted blog from the table
         const row = document.getElementById(`blog-${blogId}`);
         row.parentNode.removeChild(row);
+        location.reload();
       }
     })
-    .catch(error => console.error(error));
-  }
-  
+    .catch((error) => console.error(error));
+}

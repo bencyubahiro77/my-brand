@@ -298,9 +298,9 @@
  
 
  .comment{
-    color:aqua;
+    color:rgb(238, 96, 13);
     display: flex;
-    padding-left: 50px;
+    padding-left: 80px;
     margin: 0px;
     max-width: 40%;
 
@@ -310,7 +310,7 @@
     padding-bottom: 3px;
     padding-left: 20px;
  }
- .likebutton{
+ .fa-thumbs-up{
     cursor: pointer;
     padding-bottom: 3px;
  }
@@ -343,9 +343,9 @@
     width: 250px;
     text-align: center;
   }
-  .layer p{
+  .work p{
     display: block;
-    max-height: 4.5em;
+    max-height: 4.3em;
     overflow: hidden;
     width: 100%;
   }
@@ -667,7 +667,7 @@ transition: transform 0.5s;
         padding: 20px;
         margin-left: 0px;
         margin-right: 0px;
-        padding-left: 47.5px;
+        padding-left: 60px;
         
      }
       /*------------------------------small screen-----------------------------*/
@@ -699,14 +699,15 @@ transition: transform 0.5s;
             margin-left: 2px;
         }
         nav ul{
-            background-color: #ff004f;
+            background-color: rgb(238, 96, 13);
             position: fixed;
             top: 0;
             right: -190px;
             width: 150px;
-            height: 100vh;
-            padding-top: 30px;
+            height: 50%;
+            padding-top: 10px;
             z-index: 3;
+            transition: 0.4s;
         }
         nav .fas{
             color: white;
@@ -812,6 +813,9 @@ transition: transform 0.5s;
          .main__containeraboutme{
             height: 100%;
          }
+         .comment{
+            padding-left: 40px;
+         }
         /*--------------blog and work-----------*/
         .main__containerblog{
             height: 100%;
@@ -835,6 +839,8 @@ transition: transform 0.5s;
             margin-left: 100px;
         }
         .mycomment{
-            width: 70%;
+            padding-left: 20px;
+            max-width: 80%;
          }
+    
     }

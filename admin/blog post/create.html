@@ -17,7 +17,9 @@
            <nav>
             
             <img src="/pics used/beno logo 2.png" class="logo">
-            <button style="color: whitesmoke; cursor: pointer; border: none; "><a href="/index.html">Home</a></button>
+            <ul id="sidemenu">
+                <li><a href="/index.html" >Home </a></li>
+               </ul>
           </nav>
     
          </div>
@@ -67,34 +69,81 @@
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function() {
-    var form = document.getElementById("post-form");
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        var title = document.getElementById("title").value;
-        var content = document.getElementById("content").value;
-        var image = document.getElementById("image").value;
+// document.addEventListener("DOMContentLoaded", function() {
+//     var form = document.getElementById("post-form");
+//     form.addEventListener("submit", function(e) {
+//         e.preventDefault();
+//         var title = document.getElementById("title").value;
+//         var content = document.getElementById("content").value;
+//         var image = document.getElementById("image").value;
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://beno-backend.onrender.com/api/blogs/blog");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onload = function() {
-            if (xhr.status === 201) {
-                alert("Post created successfully!");
+//         var xhr = new XMLHttpRequest();
+//         xhr.open("POST", "https://beno-backend.onrender.com/api/blogs/blog");
+//         xhr.setRequestHeader("Content-Type", "application/json");
+//         xhr.onload = function() {
+//             if (xhr.status === 201) {
+//                 alert("Post created successfully!");
+//             } else {
+//                 alert("An error occurred while the post being created.");
+//             }
+//         };
+//         xhr.onerror = function() {
+//             alert("An error occurred while creating the post.");
+//         };
+//         xhr.send(JSON.stringify({
+//             title: title,
+//             content: content,
+//             image: image
+//         }));
+//     });
+// });
+
+const submit = document.querySelector('#submit')
+const title = document.querySelector('#title')
+const content = document.querySelector('#content')
+const image = document.querySelector('#image')
+
+
+submit.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    const blogData = {
+        title: title.value,
+        content: content.value,
+        image: image.value
+    }
+
+    console.log(blogData)
+
+    const newData = {
+        method: 'POST',
+
+        headers: {
+            'Content-Type': "application/json"
+
+            // "authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(blogData)
+    }
+
+    console.log(newData)
+    fetch("https://beno-backend.onrender.com/api/blogs/blog", newData)
+    .then(async(n) => {
+            const res = await n.json()
+            console.log(res)
+            if (res){
+                alert('Blog created');
+                location.reload();
             } else {
-                alert("An error occurred while the post being created.");
+                alert('Blog not created!')
             }
-        };
-        xhr.onerror = function() {
-            alert("An error occurred while creating the post.");
-        };
-        xhr.send(JSON.stringify({
-            title: title,
-            content: content,
-            image: image
-        }));
-    });
-});
+
+        })
+        .catch((error) => {
+       console.error("Error fetching blog:", error);
+  });
+})
+
 
 
 

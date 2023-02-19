@@ -78,6 +78,7 @@
                 <p class="Website__rights">BENO &#169; 2023 All rights reserved.</p>
         </div>
         </div> 
+        
 <script>
     var sidemenu = document.getElementById("sidemenu");
     
@@ -91,6 +92,7 @@
 </script>  
 
 <script>
+
 const container = document.querySelector('.work-list');
 console.log(container);
 
@@ -110,19 +112,41 @@ fetch("https://beno-backend.onrender.com/api/blogs/blog", newData)
     console.log(allblogs);
 
     allblogs.forEach((data) => {
-      id = JSON.stringify(data._id);
       const blogPost = document.createElement('div');
       blogPost.classList.add('work');
       blogPost.innerHTML = `
         <!-- <img src=${data.image}> -->
         <h3>${data.title}</h3>
         <p>${data.content}</p>
-        <button class="main__btn"><a href="openblog.html">Read more</a></button> 
+        <button class="main__btn" data-id="${data._id}">Read more</button> 
       `;
       container.insertBefore(blogPost, container.firstChild);
     });
-  });
 
+    // add event listener to each button
+    const buttons = document.querySelectorAll('.main__btn');
+    buttons.forEach((button) => {
+      button.addEventListener('click', async () => {
+        const blogId = button.getAttribute('data-id');
+        const response = await fetch(`https://beno-backend.onrender.com/api/blogs/blog/${blogId}`);
+        const data = await response.json();
+
+        // create new page to display full blog
+        const newPage = window.open();
+        newPage.document.write(`
+          <html>
+            <head>
+              <title>${data.title}</title>
+            </head>
+            <body>
+              <h1>${data.title}</h1>
+              <p>${data.content}</p>
+            </body>
+          </html>
+        `);
+      });
+    });
+  });
 
 </script>
 

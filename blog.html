@@ -118,7 +118,7 @@ fetch("https://beno-backend.onrender.com/api/blogs/blog", newData)
         <!-- <img src=${data.image}> -->
         <h3>${data.title}</h3>
         <p>${data.content}</p>
-        <button class="main__btn" data-id="${data._id}">Read more</button> 
+        <button class="main__btn" data-id="${blog._id}">Read more</button> 
       `;
       container.insertBefore(blogPost, container.firstChild);
     });
@@ -139,7 +139,7 @@ fetch("https://beno-backend.onrender.com/api/blogs/blog", newData)
               <title>${data.title}</title>
             </head>
             <body>
-              <h1>${data.title}</h1>
+              <!-- <h1>${data.title}</h1> -->
               <p>${data.content}</p>
             </body>
           </html>

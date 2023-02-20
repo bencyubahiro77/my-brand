@@ -92,63 +92,42 @@
 </script>  
 
 <script>
+    const container = document.querySelector('.work-list');
+    const newData = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
 
-const container = document.querySelector('.work-list');
-console.log(container);
+    fetch('https://beno-backend.onrender.com/api/blogs/blog', newData)
+      .then(async (n) => {
+        const res = await n.json();
+        let allblogs = res.blogs;
 
-const newData = {
-  method: 'GET',
-  headers: {
-    'Content-Type': "application/json"
-  }
-};
-console.log(newData);
+        allblogs.forEach((data) => {
+          const blogPost = document.createElement('div');
+          blogPost.classList.add('work');
+          blogPost.innerHTML = `
+            <h3>${data.title}</h3>
+            <p>${data.content.substring(0, 100)}...</p>
+            <button class="main__btn" data-id="${data._id}">Read more</button>
+          `;
+          container.insertBefore(blogPost, container.firstChild);
+        });
 
-fetch("https://beno-backend.onrender.com/api/blogs/blog", newData)
-  .then(async (n) => {
-    const res = await n.json();
-    //console.log(res)
-    let allblogs = res.blogs;
-    console.log(allblogs);
-
-    allblogs.forEach((data) => {
-      const blogPost = document.createElement('div');
-      blogPost.classList.add('work');
-      blogPost.innerHTML = `
-        <!-- <img src=${data.image}> -->
-        <h3>${data.title}</h3>
-        <p>${data.content}</p>
-        <button class="main__btn" data-id="${blog._id}">Read more</button> 
-      `;
-      container.insertBefore(blogPost, container.firstChild);
-    });
-
-    // add event listener to each button
-    const buttons = document.querySelectorAll('.main__btn');
-    buttons.forEach((button) => {
-      button.addEventListener('click', async () => {
-        const blogId = button.getAttribute('data-id');
-        const response = await fetch(`https://beno-backend.onrender.com/api/blogs/blog/${blogId}`);
-        const data = await response.json();
-
-        // create new page to display full blog
-        const newPage = window.open();
-        newPage.document.write(`
-          <html>
-            <head>
-              <title>${data.title}</title>
-            </head>
-            <body>
-              <h1>${data.title}</h1>
-              <p>${data.content}</p>
-            </body>
-          </html>
-        `);
+        const readMoreButtons = document.querySelectorAll('.main__btn');
+        readMoreButtons.forEach((readMoreButton) => {
+          readMoreButton.addEventListener('click', () => {
+            const blogId = readMoreButton.dataset.id;
+            window.location.href = `openblog.html?id=${blogId}`;
+          });
+        });
       });
-    });
-  });
 
 </script>
 
 </body>
 </html>
+
+

@@ -693,7 +693,53 @@ transition: transform 0.5s;
         
      }
      /*-------------------comment-----------------------------------*/
-     
+     #comments-section {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 50px;
+        text-align: left;
+        color: black;
+      }
+  
+      #comments-section h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+  
+      #comments-section form {
+        margin-bottom: 20px;
+      }
+  
+      #comments-section input[type="text"], #comments-section textarea {
+        display: block;
+        margin-bottom: 10px;
+        width: 40%;
+        padding: 10px;
+      }
+  
+      #comments-section input[type="submit"] {
+        display: block;
+        margin-top: 10px;
+        padding: 10px;
+        background-color:rgb(238, 96, 13);
+        color: white;
+        border: none;
+        cursor: pointer;
+        width: 40%;
+        border-radius: 20px;
+      }
+  
+      .comment {
+        margin-bottom: 20px;
+      }
+  
+      .comment p {
+        margin-bottom: 5px;
+      }
+  
+      .comment small {
+        color: gray;
+      }
     
       /*------------------------------small screen-----------------------------*/
 
@@ -863,9 +909,16 @@ transition: transform 0.5s;
         .logo{
             margin-left: 100px;
         }
+        /*---------comment-----------*/
         .mycomment{
             padding-left: 20px;
             max-width: 80%;
+         }
+         #comments-section input[type="text"], #comments-section textarea{
+            width: 80%;
+         }
+         #comments-section input[type="submit"] {
+            width: 80%;
          }
     
     }

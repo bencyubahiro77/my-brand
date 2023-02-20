@@ -8,6 +8,25 @@
     <link rel="stylesheet" href="wholepage.css">
     <script src="https://kit.fontawesome.com/3ac835aa79.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/admin/admin css/admin.css">
+    <style>
+        #blog-content {
+          width: 80%;
+          margin: 0 auto;
+          text-align: center;
+          color: white;
+        }
+    
+        #blog-content h3 {
+          font-size: 36px;
+          margin-bottom: 20px;
+          color: rgb(238, 96, 13);
+        }
+    
+        #blog-content p {
+          font-size: 18px;
+          line-height: 1.5;
+        }
+      </style>
 </head>
 
 <body>
@@ -32,29 +51,20 @@
          </div>
     
     </div>
-  <div class="mainopen">
-            <h1>The first blog title</h1>
-            <img src="/pics used/children-gaef310eda_1920.jpg">
-            <p> the first blog titlethe first blog titlethe first blog titlethe first blog titlethe first blog title
-                the first blog titlethe first blog titlethe first blog titlethe first blog titlethe first blog title
-                the first blog titlethe first blog titlethe first blog titlethe first blog titlethe first blog title
-                the first blog titlethe first blog titlethe first blog titlethe first blog titlethe first blog title
-            </p>
-            <div class="comment">
-                <i class="fa-solid fa-thumbs-up" style="padding-right: 10px;" ></i>
-                      <span id="like-count1"> 0 </span>
 
-            </div>
-          <div class="mycomment">
-                <form id="comment-form" >
-                    <input type="text" name="name" placeholder="Your Name" id="username" required>
-                    <textarea name="text" rows="6" placeholder="Your Comment" id="comment" required></textarea>
-                    <button type="submit" class="btn btn2">Submit</button>
-                </form>
-           </div>  
+    <div id="blog-content">
 
+    </div>
+    <div id="comments-section">
+        <h3>Comments</h3>
+        <form id="comment-form">
+          <input type="text" name="author" placeholder="Your name" required>
+          <textarea name="comment" placeholder="Write your comment" required></textarea>
+          <input type="submit" value="send">
+        </form>
+        <div id="comments"></div>
+      </div>
            
-
 </div>
 <div class="footer__section">
     <div class="footer__links">
@@ -93,9 +103,30 @@
         sidemenu.style.right ="-190px";
     }
     
-    </script> 
-    <script>
+</script> 
 
-    </script>
+<script>
+ const blogId = new URLSearchParams(window.location.search).get('id');
+
+fetch(`https://beno-backend.onrender.com/api/blogs/blog/${blogId}`, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+  .then(async (n) => {
+    const res = await n.json();
+    const blogTitle = res.blog.title;
+    const blogContent = res.blog.content;
+
+    const blogContentElement = document.getElementById('blog-content');
+    blogContentElement.innerHTML = `
+      <h3>${blogTitle}</h3>
+      <p>${blogContent}</p>
+    `;
+  });
+</script>
+
+</script>
 </body>
 </html>

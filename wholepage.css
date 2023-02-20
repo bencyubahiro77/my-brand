@@ -367,7 +367,7 @@
   }
   .work p{
     display: block;
-    max-height: 4.3em;
+    max-height: 4.5em;
     overflow: hidden;
     width: 100%;
   }
@@ -610,7 +610,7 @@ transition: transform 0.5s;
         .footer__links{
             max-width: 100%;
             display: flex;
-            justify-content: center;
+            text-align: center;
 
         }
         .footer__links--wrapper{
@@ -650,7 +650,7 @@ transition: transform 0.5s;
        .Website__rights{
         color:#fff;
         display: flex;
-        justify-content: center;
+        text-align: center;
         font: 700;
        }
      .footer__links--items p{

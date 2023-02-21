@@ -192,7 +192,7 @@
     }
     .about-col-1 img{
         width: 300px;
-        border-radius: 15px;
+        border-radius: 25px;
         margin: 2px 0 10px
     
     }
@@ -704,6 +704,8 @@ transition: transform 0.5s;
       #comments-section h3 {
         font-size: 24px;
         margin-bottom: 20px;
+        text-align: center; 
+        width: 30%;
       }
   
       #comments-section form {
@@ -918,6 +920,9 @@ transition: transform 0.5s;
             width: 80%;
          }
          #comments-section input[type="submit"] {
+            width: 80%;
+         }
+         #comments-section h3 {
             width: 80%;
          }
     

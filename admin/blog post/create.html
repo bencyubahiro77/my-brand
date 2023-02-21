@@ -7,8 +7,8 @@
     <title>My Brand</title>
     <link rel="stylesheet" href="../admin css/admin.css">
     <script src="https://kit.fontawesome.com/3ac835aa79.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>tinymce.init({selector:'textarea'});</script>
+    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({selector:'textarea'});</script> -->
 </head>
 
 <body>
@@ -49,7 +49,7 @@
                           <p>Title</p>
                           <input type="text" name="title" id="title" class="text-input"> 
                         </div>
-                        <div style="padding-left: 30px;">
+                        <div style="justify-content: center;">
                             <p>Content</p>
                             <textarea name="content" id="content" class="body-input"></textarea>
                         </div>
@@ -69,35 +69,6 @@
     </div>  
 
 <script>
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     var form = document.getElementById("post-form");
-//     form.addEventListener("submit", function(e) {
-//         e.preventDefault();
-//         var title = document.getElementById("title").value;
-//         var content = document.getElementById("content").value;
-//         var image = document.getElementById("image").value;
-
-//         var xhr = new XMLHttpRequest();
-//         xhr.open("POST", "https://beno-backend.onrender.com/api/blogs/blog");
-//         xhr.setRequestHeader("Content-Type", "application/json");
-//         xhr.onload = function() {
-//             if (xhr.status === 201) {
-//                 alert("Post created successfully!");
-//             } else {
-//                 alert("An error occurred while the post being created.");
-//             }
-//         };
-//         xhr.onerror = function() {
-//             alert("An error occurred while creating the post.");
-//         };
-//         xhr.send(JSON.stringify({
-//             title: title,
-//             content: content,
-//             image: image
-//         }));
-//     });
-// });
 
 const submit = document.querySelector('#submit')
 const title = document.querySelector('#title')
@@ -132,7 +103,7 @@ submit.addEventListener('click', (e) => {
     .then(async(n) => {
             const res = await n.json()
             console.log(res)
-            if (res.status == 'success') {
+            if (res) {
                 alert('Blog created');
                 location.reload();
             } else {
@@ -141,9 +112,6 @@ submit.addEventListener('click', (e) => {
 
         })
 })
-
-
-
 
 </script>
 </body>

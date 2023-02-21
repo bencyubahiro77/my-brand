@@ -56,12 +56,13 @@
 
     </div>
     <div id="comments-section">
-        <h3>Comments</h3>
+        
         <form id="comment-form">
-          <input type="text" name="author" placeholder="Your name" required>
-          <textarea name="comment" placeholder="Write your comment" required></textarea>
-          <input type="submit" value="send">
+          <input type="text" name="author" id="author" placeholder="Your name" required>
+          <textarea name="comment" id="comment" placeholder="Write your comment" required></textarea>
+          <input type="submit" id="submit_comment" value="send">
         </form>
+        <h3>Comments</h3>
         <div id="comments"></div>
       </div>
            
@@ -93,20 +94,9 @@
         <p class="Website__rights">BENO &#169; 2023 All rights reserved.</p>
 </div>
 </div>   
-<script>
-    var sidemenu = document.getElementById("sidemenu");
-    
-    function openmenu(){
-        sidemenu.style.right ="0";
-    }
-    function closemenu(){
-        sidemenu.style.right ="-190px";
-    }
-    
-</script> 
 
 <script>
- const blogId = new URLSearchParams(window.location.search).get('id');
+  const blogId = new URLSearchParams(window.location.search).get('id');
 
 fetch(`https://beno-backend.onrender.com/api/blogs/blog/${blogId}`, {
   method: 'GET',
@@ -125,8 +115,80 @@ fetch(`https://beno-backend.onrender.com/api/blogs/blog/${blogId}`, {
       <p>${blogContent}</p>
     `;
   });
-</script>
+
+  fetch(`https://beno-backend.onrender.com/comment/comment?blogId=${blogId}`, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+
+  .then(async (n) => {
+    const comments = await n.json();
+
+    const commentsElement = document.getElementById('comments');
+    commentsElement.innerHTML = '';
+
+    comments.forEach(comment => {
+      const { author, comment: commentText } = comment;
+
+      const commentElement = document.createElement('div');
+      commentElement.className = 'comment';
+
+      commentElement.innerHTML = `
+        <p class="author">${author}</p>
+        <p class="comment-text">${commentText}</p>
+      `;
+
+      commentsElement.appendChild(commentElement);
+    });
+  });
+
+const submit = document.querySelector('#submit_comment')
+const author = document.querySelector('#author')
+const comment = document.querySelector('#comment')
+
+submit.addEventListener('click', (e) => {
+  e.preventDefault()
+
+  const commentData = {
+    author: author.value,
+    comment: comment.value
+  }
+
+  const newData = {
+    method: 'POST',
+    headers: {
+      'Content-Type': "application/json"
+    },
+    body: JSON.stringify(commentData),
+  }
+
+  fetch("https://beno-backend.onrender.com/comment/comment", newData)
+    .then(async (n) => {
+      const res = await n.json();
+      console.log(res);
+
+      const commentsElement = document.getElementById('comments');
+
+      const { author, comment: commentText } = res;
+
+      const commentElement = document.createElement('div');
+      commentElement.className = 'comment';
+
+      commentElement.innerHTML = `
+        <p class="author">${author}</p>
+        <p class="comment-text">${commentText}</p>
+      `;
+
+      commentsElement.appendChild(commentElement);
+
+      author.value = '';
+      comment.value = '';
+    });
+});
 
 </script>
+
 </body>
 </html>

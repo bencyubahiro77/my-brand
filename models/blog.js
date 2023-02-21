@@ -8,7 +8,7 @@ required: true
 },
 image: {
 type: String,
-required: true
+required: false
 },
 content: {
 type: String,

@@ -200,4 +200,7 @@ form div{
     .body-input{
         width: 100%;
     }
+    .createblog{
+        padding-left: 20px;
+    }
 }

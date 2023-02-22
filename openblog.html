@@ -35,7 +35,7 @@
             
             <nav>
             
-                <img src="/pics used/beno logo 2.png" class="logo">
+                <img src="/pics used/logo croped.png" class="logo">
                 <ul id="sidemenu">
                  <li><a href="index.html" >Home </a></li>
                  <li><a href="mywork.html" >Portfolio</a></li>
@@ -66,7 +66,6 @@
         <div id="comments"></div>
       </div>
            
-</div>
 <div class="footer__section">
     <div class="footer__links">
         <div class="footer__links--wrapper">
@@ -90,10 +89,22 @@
             </div>
         </div>
     </div> 
+
     <div class="social__media">
-        <p class="Website__rights">BENO &#169; 2023 All rights reserved.</p>
-</div>
+      <p class="Website__rights">BENO &#169; 2023 All rights reserved.</p>
+    </div>
 </div>   
+<script>
+  var sidemenu = document.getElementById("sidemenu");
+  
+  function openmenu(){
+      sidemenu.style.right ="0";
+  }
+  function closemenu(){
+      sidemenu.style.right ="-190px";
+  }
+  
+  </script>  
 
 <script>
   const blogId = new URLSearchParams(window.location.search).get('id');

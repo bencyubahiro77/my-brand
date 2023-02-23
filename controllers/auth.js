@@ -4,35 +4,44 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 
-
 const register = async (req, res) => {
-try {
-const { firstName, lastName, email, password } = req.body;
-const hashedPassword = await bcrypt.hash(password, 10);
-
-const user = new User({
-firstName,
-lastName,
-email,
-password: hashedPassword
-});
-
-const savedUser = await user.save();
-
-const payload = {
-userId: savedUser._id,
-email: savedUser.email
-};
-
-const token = jwt.sign(payload, process.env.JWT_SECRET, {
-expiresIn: "5h"
-});
-
-res.status(201).json({ message: "User created", user: savedUser, token });
-} catch (error) {
-res.status(500).json({ message: error.message });
-}
-};
+    try {
+      const { firstName, lastName, email, password } = req.body;
+  
+      // Check if user with the same email already exists
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+        return res.status(400).json({ message: "Email already in use" });
+      }
+  
+      const hashedPassword = await bcrypt.hash(password, 10);
+  
+      const user = new User({
+        firstName,
+        lastName,
+        email,
+        password: hashedPassword,
+      });
+  
+      const savedUser = await user.save();
+  
+      const payload = {
+        userId: savedUser._id,
+        email: savedUser.email,
+      };
+  
+      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "5h",
+      });
+  
+      res
+        .status(201)
+        .json({ message: "User created", user: savedUser, token });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  
 
 
 
